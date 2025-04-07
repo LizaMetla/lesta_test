@@ -6,3 +6,12 @@ services:
     container_name: lesta_test_project
     ports:
       - "5001:5000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6666:6379"
